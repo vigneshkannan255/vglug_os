@@ -1,0 +1,17 @@
+### Downloading ISO 
+curl -X GET -OL https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-11.7.0-amd64-netinst.iso
+
+### Installing xorriso for ISO editing
+sudo apt-get install -y xorriso
+
+### Decompress ISO
+extract ISO by right clicking mouse
+
+### Required packages
+apt-get install -y xorriso p7zip-full fakeroot binutils isolinux
+
+  xorriso -as mkisofs -isohybrid-mbr /usr/lib/ISOLINUX/isohdpfx.bin -c isolinux/boot.cat -b isolinux/isolinux.bin -no-emul-boot -boot-load-size 4 -boot-info-table -eltorito-alt-boot -e boot/grub/efi.img -no-emul-boot -isohybrid-gpt-basdat -o /home/vk/Mallatai.iso .
+  
+  xorriso -as mkisofs -V "Debian Mallatai amd64" -isohybrid-mbr /usr/lib/ISOLINUX/isohdpfx.bin -c isolinux/boot.cat -b isolinux/isolinux.bin -no-emul-boot -boot-load-size 4 -boot-info-table -eltorito-alt-boot -e boot/grub/efi.img -no-emul-boot -isohybrid-gpt-basdat -o /home/vk/Mallatai.iso .
+
+ 
